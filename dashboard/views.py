@@ -26,7 +26,8 @@ def server(request,server_name):
     }
     services = ['dns','http','mail']
     context = {
-        'imgsrc': []
+        'imgsrc': [],
+        'server_name': server_name
     }
     for i in services:
         context['imgsrc'].append(URLParser(graphite_url, payload(server_name, i)))
