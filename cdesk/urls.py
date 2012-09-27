@@ -8,9 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'cdesk.views.home', name='home'),
     # url(r'^cdesk/', include('cdesk.foo.urls')),
-    url(r'^dashboard/$', 'dashboard.views.index'),
-    url(r'^dashboard/(?P<server_name>[A-Za-z0-9-]+)/$', 'dashboard.views.servergraphs'),
-
+    url(r'^dashboard/', include('dashboard.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

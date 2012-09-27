@@ -1,4 +1,4 @@
-from dashboard.models import dImage
+from dashboard.models import server, dImage
 from django.contrib import admin
 
-admin.site.register(dImage)
+admin.site.register(server)
