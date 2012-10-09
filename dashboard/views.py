@@ -33,6 +33,7 @@ def server(request,server_name):
     }
     context = {
         'img': {},
+        'servers': Server.objects.all(),
         'server_name': server_name,
         'sz': graph_dimensions,
         'message': "No errors"
@@ -41,7 +42,5 @@ def server(request,server_name):
     for SSi in ss:
         pload = payload(server_name, SSi.data)
         context['img'].setdefault(str(SSi.sname),[]).append((SSi.label, URLParser(graphite_url, pload)))
-
-    #context['message'] = str(context['img'])
 
     return render_to_response('server.html', context)

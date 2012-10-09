@@ -3,5 +3,8 @@
 
 #imgloader {
     text-align:left;
-    padding-left: 10px;
+}
+.server_i {
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
