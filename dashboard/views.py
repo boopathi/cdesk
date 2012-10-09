@@ -21,7 +21,7 @@ def URLParser(base, payload):
 
 def server(request,server_name):
     graphite_url = "http://graphite.directi.com/render/"
-    graph_dimensions = (500,75)
+    graph_dimensions = (200,75)
     payload = lambda host, data : {
         'from': '-2days',
         'until': 'now',
