@@ -1,4 +1,6 @@
-from dashboard.models import server, dImage
+from dashboard.models import server, service, Graph
 from django.contrib import admin
 
 admin.site.register(server)
+admin.site.register(service)
+admin.site.register(Graph)

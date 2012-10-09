@@ -1,9 +1,60 @@
+<!doctype html>
 <html>
-  <head><title>Server {{ server_name }}</title>
-    <body>
-      Loading Stats...
-      {% for src in imgsrc %}
-      <img src="{{ src }}" />
-      {% endfor %}
-    </body>
+  <head>
+    <title>Server {{ server_name }}</title>
+    <link type="text/css" rel="stylesheet" href="/static/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/static/cdesk.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+	<div class="container">
+	  <a class="brand">Showing stats for {{ server_name }}</a>
+	  <ul class="nav">
+	    <li class="dropdown">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown">MD servers</a>
+	      <ul class="dropdown-menu">
+		<li><a href="../md-1">md-1</a></li>
+		<li><a href="../md-2">md-2</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="tabbable">
+	<ul class="nav nav-tabs">
+	  {% for service in img %}
+	  <li class="{% if forloop.first %}active{% endif %}">
+	    <a href="#{{ service }}" data-toggle="tab">{{ service }}</a>
+	  </li>
+	  {% endfor %}
+	</ul>
+	<div class="tab-content">
+	  {% for service, array in img.items %}
+	  <div class="tab-pane {% if forloop.first %}active{% endif %}" id="{{ service }}">
+	    <div class="row">
+	      {% for label,src in array %}
+	      <div class="gimage span6">
+		<h4>{{ label }}</h4>
+		<img src="{{ src }}" width="{{ sz.0 }}" height="{{ sz.1 }}" border="1" />
+	      </div>
+	      {% endfor %}
+	    </div>
+	  </div>
+	  {% endfor %}
+	  <div class="tab-pane" id="tab2">
+	    alkjasdf
+	    adksfj
+	  </div>
+	</div>
+      </div>
+      <strong>Server says : </strong>
+      <p class="text-info">{{ message }}</p>
+    </div>
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/bootstrap.min.js"></script>
+    <script src="/static/cdesk.js"></script>
+  </body>
 </html>

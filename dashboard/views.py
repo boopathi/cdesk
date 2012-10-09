@@ -4,31 +4,44 @@ from django.http import HttpResponse
 from django.template import Context, loader
 from django.shortcuts import render_to_response, get_object_or_404
 
+from dashboard.models import server as Server, Graph, service as Service
+
+services = ['dns', 'ftp', 'http','mail', 'mysql', 'power', 'system', 'uptime']
+server_prefixes = ['md-', 'bh-', 'bh-cp-', 'cp-']
+
 def index(request): #provide server_list
     c = {
-        'servers': ['md-1','md-2']
+        'servers': [ str(i) for i in Server.objects.all() ]
     }
     return render_to_response('serverlist.html', c)
 
 def URLParser(base, payload):
     serialized = '&'. join([ "%s=%s" % (key,value) for key,value in payload.iteritems()])
-    return str(base) + serialized
+    return str(base) + '?' + serialized
 
 def server(request,server_name):
     graphite_url = "http://graphite.directi.com/render/"
-    payload = lambda server, service: {
-        'from': '-2hours',
+    graph_dimensions = (500,75)
+    payload = lambda host, data : {
+        'from': '-2days',
         'until': 'now',
-        'width': '400',
-        'height': '250',
-        'target': "hosting.%s.%s" % (server,service),
-        'title': "hosting.%s.%s" % (server,service)
+        'width': graph_dimensions[0],
+        'height': graph_dimensions[1],
+        'target': "mostDeviant(10,%s)" % (data % (host)),
+        'title': "host",
+        'graphOnly': '1'
     }
-    services = ['dns','http','mail']
     context = {
-        'imgsrc': [],
-        'server_name': server_name
+        'img': {},
+        'server_name': server_name,
+        'sz': graph_dimensions,
+        'message': "No errors"
     }
-    for i in services:
-        context['imgsrc'].append(URLParser(graphite_url, payload(server_name, i)))
+    ss = Graph.objects.all()
+    for SSi in ss:
+        pload = payload(server_name, SSi.data)
+        context['img'].setdefault(str(SSi.sname),[]).append((SSi.label, URLParser(graphite_url, pload)))
+
+    #context['message'] = str(context['img'])
+
     return render_to_response('server.html', context)
