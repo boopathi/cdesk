@@ -6,23 +6,14 @@
     <link type="text/css" rel="stylesheet" href="/static/cdesk.css" />
   </head>
   <body>
-    <div class="navbar navbar-static-top">
+    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
 	<div class="container">
 	  <a class="brand">Showing stats for {{ server_name }}</a>
-	  <ul class="nav">
-	    <li class="dropdown">
-	      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Server List</a>
-	      <ul class="dropdown-menu">
-		{% for s in servers %}
-		<li><a href="../{{ s }}">{{ s }}</a></li>
-		{% endfor %}
-	      </ul>
-	    </li>
-	  </ul>
 	</div>
       </div>
     </div>
+    <div style="height:60px;"></div>
     <div class="container">
       <div class="accordion" id="accordion">
 	<div class="accordion-group">
@@ -32,7 +23,9 @@
 	    </a>
 	    <div class="accordion-body collapse out" id="collapseOne">
 	      {% for s in servers %}
-	      <a href="../{{ s }}" class="btn btn-mini server_i">{{ s }}</a>
+	      <div class="span1 server_i">
+		<a href="../{{ s }}">{{ s }}</a>
+	      </div>
 	      {% endfor %}
 	    </div>
 	  </div>
