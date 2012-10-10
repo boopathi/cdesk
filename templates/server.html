@@ -4,6 +4,9 @@
     <title>Server {{ server_name }}</title>
     <link type="text/css" rel="stylesheet" href="/static/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="/static/cdesk.css" />
+    <script>
+      var baseurl = "{{baseurl}}";
+    </script>
   </head>
   <body>
     <div class="navbar navbar-fixed-top">
@@ -36,6 +39,9 @@
       </div>
       <div class="tabbable">
 	<ul class="nav nav-tabs">
+	  <li>
+	    <a href="#bigimage" data-toggle="tab" id="bigpreview">Preview</a>
+	  </li>
 	  {% for service in img %}
 	  <li class="{% if forloop.first %}active{% endif %}">
 	    <a href="#{{ service }}" data-toggle="tab">{{ service }}</a>
@@ -43,13 +49,18 @@
 	  {% endfor %}
 	</ul>
 	<div class="tab-content">
+	  <div class="tab-pane" id="bigimage">
+	    <img src="" width="960" height="600" />
+	  </div>
 	  {% for service, array in img.items %}
 	  <div class="tab-pane {% if forloop.first %}active{% endif %}" id="{{ service }}">
 	    <div class="row">
-	      {% for label,src in array %}
-	      <div class="gimage span3">
+	      {% for label,src,target in array %}
+	      <div class="span3">
 		<h4>{{ label }}</h4>
-		<img src="{{ src }}" width="{{ sz.0 }}" height="{{ sz.1 }}" border="1" />
+		<a href="#{{label}}" class="gimage" data-target="{{ target }}">
+		  <img src="{{ src }}" width="{{ sz.0 }}" height="{{ sz.1 }}" border="1" />
+		</a>
 	      </div>
 	      {% endfor %}
 	    </div>

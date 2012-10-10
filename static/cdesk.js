@@ -15,4 +15,23 @@ $(function(){
     $("img").bind({
 	"load": function(){ log(); }
     });
+    var popimage = function(label, target) {
+	var settings = {
+	    "width": 960,
+	    "height": 600,
+	    "from": "-2days",
+	    "target": target,
+	    "title": label,
+	    "until": "now"
+	};
+	sarray = [];
+	for(i in settings) sarray.push(i + "=" + settings[i]);
+	src = baseurl + "?" + sarray.join('&');
+	$("#bigimage img").attr("src", src);
+	$("#bigpreview").trigger('click');
+    }
+    $(".gimage").click(function(e){
+	e.preventDefault();
+	popimage($(this).attr("href"), $(this).data("target"));
+    });
 });

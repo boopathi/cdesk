@@ -33,6 +33,7 @@ def server(request,server_name):
     }
     context = {
         'img': {},
+        'baseurl': graphite_url,
         'servers': Server.objects.all(),
         'server_name': server_name,
         'sz': graph_dimensions,
@@ -41,6 +42,6 @@ def server(request,server_name):
     ss = Graph.objects.all()
     for SSi in ss:
         pload = payload(server_name, SSi.data)
-        context['img'].setdefault(str(SSi.sname),[]).append((SSi.label, URLParser(graphite_url, pload)))
+        context['img'].setdefault(str(SSi.sname),[]).append((SSi.label, URLParser(graphite_url, pload), pload["target"]))
 
     return render_to_response('server.html', context)
