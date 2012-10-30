@@ -4,6 +4,10 @@ from django.http import HttpResponse
 from django.template import Context, loader
 from django.shortcuts import render_to_response, get_object_or_404
 
+def _whisper_fetch():
+    #imported from whisperfetch.py
+    return false
+
 def index(request):
     context = {
         'servers': [1,2,3,4]
