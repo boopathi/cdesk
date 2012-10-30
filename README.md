@@ -1,4 +1,4 @@
 cdesk
 =====
 
-Per Server Dashboard for Graphite Metrics
+Advanced metric viewer that parses whisper db data
