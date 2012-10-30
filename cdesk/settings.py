@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/boopathi/workspace/cdesk/db.sqlite3',                      # Or path to database file if using sqlite3.
+        'NAME': '/etc/cdesk/db.sqlite3',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -64,7 +64,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    '/home/boopathi/workspace/cdesk/static',
+    '/etc/cdesk/static',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -104,7 +104,7 @@ ROOT_URLCONF = 'cdesk.urls'
 WSGI_APPLICATION = 'cdesk.wsgi.application'
 
 TEMPLATE_DIRS = (
-    '/home/boopathi/workspace/cdesk/templates'
+    '/etc/cdesk/templates'
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -121,7 +121,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'dashboard'
+    'dashboard',
+    'jargon'
 )
 
 # A sample logging configuration. The only tangible logging
