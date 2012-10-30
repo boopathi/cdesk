@@ -12,7 +12,6 @@ GRAPHTABLE="$TABLEPREFIX"graph
 
 declare -A SERVICES=( ["http"]=1 ["ftp"]=2 ["dns"]=3 ["mail"]=4 ["mysql"]=5 ["power"]=6 ["system"]=7 )
 
-SERVER_RANGE=( {1..50} {1..21} {1..33} {1..17} )
 declare -A SERVERS=( ["md-"]=50 ["bh-"]=21 ["cp-"]=33 ["bh-cp-"]=17 )
 
 function foo { echo $1; exit 1; }

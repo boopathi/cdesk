@@ -1,5 +1,5 @@
 $(function(){
-    var total = $("img").length;
+    var total = $(".gimage img").length;
     var counter = 0;
     var space = " &nbsp; &nbsp; ";
     var log = function() {
@@ -12,9 +12,12 @@ $(function(){
 	    }, 1250);
 	}
     }
-    $("img").bind({
+    $(".gimage img").bind({
 	"load": function(){ log(); }
     });
+    var newImage = function() {
+	
+    }
     var popimage = function(label, target) {
 	var settings = {
 	    "width": 960,
@@ -27,7 +30,7 @@ $(function(){
 	sarray = [];
 	for(i in settings) sarray.push(i + "=" + settings[i]);
 	src = baseurl + "?" + sarray.join('&');
-	$("#bigimage img").attr("src", src);
+	$("#bigimage").attr("src", src);
 	$("#bigpreview").trigger('click');
     }
     $(".gimage").click(function(e){

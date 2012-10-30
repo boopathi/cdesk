@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'cdesk.views.home', name='home'),
     # url(r'^cdesk/', include('cdesk.foo.urls')),
     url(r'^dashboard/', include('dashboard.urls')),
+    url(r'^jargon/', include('jargon.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
