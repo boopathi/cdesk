@@ -12,14 +12,11 @@
       var _graph = {
       title: "Boopathi Rajaa",
       desc: "This is also dynamically fetched",
-      from: Date.UTC(2006, 0, 1),
-      to: Date.UTC(2008, 7, 1)
+      from: {{ start }},
+      to: {{ end }}
       };
-      var data=[];
-      for(var i=0;i<100;i++) { data[i]=Math.random() + 4.5 * Math.random() * Math.random(); }
-    </script>
-    <script>
-      var gdata={{ data }}
+      var data={{ values }};
+      //for(var i=0;i<100;i++) { data[i]=Math.random() + 4.5 * Math.random() * Math.random(); }
     </script>
     <script src="/static/jargon.js"></script>
   </body>

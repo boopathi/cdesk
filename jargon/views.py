@@ -18,9 +18,5 @@ def _whisper_fetch(path):
     return {'start':start, 'end':end, 'step':step, 'values':values_json }
 
 def index(request):
-    context = {
-        'servers': [1,2,3,4]
-    }
-    jsondata = _whisper_fetch('hosting/cp-23/mysql/modsec/total_dbs_size.wsp')
-    context['data'] = jsondata
+    context = _whisper_fetch('hosting/cp-23/mysql/modsec/total_dbs_size.wsp')
     return render_to_response('jargon.html', context)
