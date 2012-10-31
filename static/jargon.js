@@ -207,7 +207,7 @@ $(document).ready(function() {
     $("header .selector .element").change(function() {
 	var level=parseInt($(this).data('level'));
 	$(this).parent().find(".element").each(function(i,item) {
-	    if($(item).data('level') > level)
+	    if(parseInt($(item).data('level')) > level)
 		$(item).remove();
 	});
     });
