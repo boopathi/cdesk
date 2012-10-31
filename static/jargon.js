@@ -203,4 +203,13 @@ $(document).ready(function() {
 
     // create master and in its callback, create the detail chart
     createMaster();
+
+    $("header .selector .element").change(function() {
+	var level=parseInt($(this).data('level'));
+	$(this).parent().find(".element").each(function(i,item) {
+	    if($(item).data('level') > level)
+		$(item).remove();
+	});
+    });
+
 });
