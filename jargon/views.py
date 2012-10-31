@@ -47,7 +47,7 @@ def children(request):
     nohack = currentpath.startswith(basepath)
     wsp = nohack and os.path.splitext(currentpath)[1] == "wsp"
     if wsp:
-        context = _whiper_fetch(currentpath)
+        context = _whisper_fetch(currentpath)
         response = {}
         response['status'] = 2
         response['payload'] = context
