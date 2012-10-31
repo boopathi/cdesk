@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 
 def _whisper_fetch(path):
     #imported from whisperfetch.py
-    import sys, time
+    import sys, time, os
     import whisper
     basepath = "/data/graphite/whisper/"
     path = basepath+str(path)
