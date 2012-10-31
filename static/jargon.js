@@ -204,12 +204,14 @@ $(document).ready(function() {
     // create master and in its callback, create the detail chart
     createMaster();
 
+    var gtree=_graph.tree;
     $("header .selector .element").change(function() {
 	var level=parseInt($(this).data('level'));
 	$(this).parent().find(".element").each(function(i,item) {
 	    if(parseInt($(item).data('level')) > level)
 		$(item).remove();
 	});
+	
     });
 
 });
