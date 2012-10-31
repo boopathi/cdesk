@@ -265,7 +265,8 @@ $(document).ready(function() {
 		dataType: "json",
 		success: function(response) {
 		    console.log(response);
-		    add(response.payload);
+		    if(response.status == 1)
+			add(response.payload);
 		}
 	    });
 	}
