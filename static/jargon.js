@@ -249,11 +249,12 @@ $(document).ready(function() {
 	var selector = $("header .selector");
 	var elements = selector.find(".element");
 	var max = 0;
+	var path = [];
 	console.log(elements);
 	function changer() {
 	    var level=parseInt($(this).data('level'));
-	    var elements = selector.find(".elements");
-	    elements.each(function(i,item) {
+	    var els = selector.find(".element");
+	    els.each(function(i,item) {
 		if(parseInt($(item).data('level')) > level)
 		    $(item).remove();
 	    });
@@ -278,6 +279,7 @@ $(document).ready(function() {
 		'class': 'element',
 		'data-level': max+1
 	    });
+	    el.append("<option>...</option>");
 	    for( i in args) {
 		var sub = $("<option/>",{text: args[i]});
 		el.append(sub);
