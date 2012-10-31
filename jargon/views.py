@@ -15,7 +15,19 @@ def _whisper_fetch(path):
     (timeInfo, values) = whisper.fetch(path, from_time, until_time)
     (start,end,step)=timeInfo
     values_json = str(values).replace('None','null')
-    return {'start':start, 'end':end, 'step':step, 'values':values_json }
+    #walk through the system to find all whisperdb files
+    available_metrics=[]
+    for root, dirnames, filenames in os.walk(basepath):
+        for filename in filenames:
+            temp=os.path.join(root,filename)
+            if "wsp" == os.path.splitext(temp)[1]:
+                available_metrics.append(temp)
+    ametr = {}
+    for i in available_metrics:
+        p=ametr
+        for x in i.split('/'):
+            p = p.setdefault(x,{})
+    return {'start':start,'end':end,'step':step,'values':values_json,'metrics':ametr }
 
 def index(request):
     context = _whisper_fetch('hosting/cp-23/mysql/modsec/total_dbs_size.wsp')

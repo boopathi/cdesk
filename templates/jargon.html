@@ -24,7 +24,6 @@
     <div class="clearer"></div>
     <div id="graph-container"></div>
     <script src="/static/jargon.lib.js"></script>
-    <script src="/static/jquery.selectbox.min.js"></script>
     <script>
       var _graph = {
       title: "Metric X",
@@ -34,6 +33,9 @@
       };
       var data={{ values }};
       //for(var i=0;i<100;i++) { data[i]=Math.random() + 4.5 * Math.random() * Math.random(); }
+    </script>
+    <script>
+      _graph.tree = {{ metrics }}
     </script>
     <script src="/static/jargon.js"></script>
   </body>
