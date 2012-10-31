@@ -246,7 +246,7 @@ $(document).ready(function() {
     })();
 
     var pathSelector = (function() {
-	var selector = $(".header .selector");
+	var selector = $("header .selector");
 	var elements = selector.find(".element");
 	var max = 1;
 	console.log(elements);
