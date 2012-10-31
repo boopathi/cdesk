@@ -3,7 +3,7 @@
 from django.http import HttpResponse
 from django.template import Context, loader
 from django.shortcuts import render_to_response, get_object_or_404
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from django.core.context_processors import csrf
 
 import sys, time, os, whisper, json
@@ -39,6 +39,7 @@ def index(request):
     context.update(csrf(request))
     return render_to_response('jargon.html', context)
 
+@csrf_exempt
 def children(request):
     response = {}
     basepath = '/data/graphite/whisper/'
