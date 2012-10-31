@@ -14,7 +14,10 @@ framework.
 
 """
 import os
-
+import sys
+path='/etc/cdesk'
+if path not in sys.path:
+	sys.path.append(path)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cdesk.settings")
 
 # This application object is used by any WSGI server configured to use this
