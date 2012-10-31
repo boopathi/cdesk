@@ -48,9 +48,10 @@ def children(request):
         submetrics=[x for x in os.listdir(currentpath)]
         response['status'] = 1
         response['payload'] = submetrics
+        response['input'] = currentpath
         return HttpResponse(json.dumps(response), mimetype='application/json')
     else:
         response['status'] = 0
         response['payload'] = []
-        response['input'] = currentpath
+        response['input'] = currentpath + "0"
         return HttpResponse(json.dumps(response), mimetype='application/json')
