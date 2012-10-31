@@ -45,7 +45,7 @@ def children(request):
     basepath = '/data/graphite/whisper'
     currentpath = os.path.realpath(os.path.join(basepath,request.POST['metricpath']))
     nohack = currentpath.startswith(basepath)
-    wsp = nohack and os.path.splitext(currentpath)[1] == ".wsp"
+    wsp = nohack and (".wsp" == os.path.splitext(currentpath)[1])
     response['nohack']=nohack
     response['wsp']=os.path.splitext(currentpath)[1]
     if wsp:
