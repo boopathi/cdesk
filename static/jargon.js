@@ -255,11 +255,13 @@ $(document).ready(function() {
 	    var level=parseInt($(this).data('level'));
 	    var els = selector.find(".element");
 	    els.each(function(i,item) {
-		if(parseInt($(item).data('level')) > level)
-		    $(item).remove();
+		if(parseInt($(item).data('level')) > level) {
+		    $(item).remove(); path.pop();
+		}
 	    });
 	    max = level;
-	    send({ metricpath: $(this).val() });
+	    path.push($(this).val());
+	    send({ metricpath: path.join('/') });
 	}
 	elements.change(changer);
 	function send(data) {
