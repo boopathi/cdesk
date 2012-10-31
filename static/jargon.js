@@ -257,6 +257,7 @@ $(document).ready(function() {
 		    $(item).remove();
 	    });
 	    max = level;
+	    console.log("asdf");
 	    $.ajax({
 		type: "POST",
 		url: "./_children",
