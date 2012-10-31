@@ -34,8 +34,8 @@ header .selector .element {
     float: left;
     position: relative;
     top: 34px;
-    background: #2CF;
-    color: #333;
+    background: #09F;
+    color: #FFF;
     border:0;
     outline:none;
     width: 180px;
@@ -44,8 +44,8 @@ header .selector .element {
     padding-left: 17px;
 }
 header .selector .element option {
-    background: #2CF;
-    color: #333;
+    background: #000;
+    color: #FFF;
     border: 0;
 }
 #graph-container {
