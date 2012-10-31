@@ -48,12 +48,13 @@ def children(request):
     wsp = nohack and os.path.splitext(currentpath)[1] == "wsp"
     if wsp:
         context = _whisper_fetch(currentpath)
-        response = {}
         response['status'] = 2
         response['payload'] = context
         response['input'] = currentpath
         response['base'] = basepath
         return HttpResponse(json.dumps(response), mimetype='application/json')
+    else:
+        return HttpResponse(json.dumps({'status':3}), mimetype='application/json')
     flag = nohack and os.path.exists(currentpath)
     try:
         os.listdir(currentpath);
