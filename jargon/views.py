@@ -54,9 +54,11 @@ def children(request):
         response['status'] = 1
         response['payload'] = submetrics
         response['input'] = currentpath
+        response['base'] = basepath
         return HttpResponse(json.dumps(response), mimetype='application/json')
     else:
         response['status'] = 0
         response['payload'] = []
         response['input'] = currentpath
+        response['base']=basepath
         return HttpResponse(json.dumps(response), mimetype='application/json')
