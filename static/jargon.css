@@ -27,7 +27,7 @@ header h1{
 }
 header .selector {
     float: left;
-    height: 60px;
+    line-height: 60px;
 }
 height .selector .element {
     float: left;
