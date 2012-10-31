@@ -205,13 +205,12 @@ $(document).ready(function() {
     createMaster();
 
     var gtree=_graph.tree;
-    $("header .selector .element").change(function() {
+    $("header .selector .element").selectbox().change(function() {
 	var level=parseInt($(this).data('level'));
 	$(this).parent().find(".element").each(function(i,item) {
 	    if(parseInt($(item).data('level')) > level)
 		$(item).remove();
 	});
-	
     });
 
 });
