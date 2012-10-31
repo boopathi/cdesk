@@ -52,4 +52,5 @@ def children(request):
     else:
         response['status'] = 0
         response['payload'] = []
+        response['input'] = currentpath
         return HttpResponse(json.dumps(response), mimetype='application/json')
