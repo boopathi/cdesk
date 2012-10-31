@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.template import Context, loader
 from django.shortcuts import render_to_response, get_object_or_404
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.core.context_processors import csrf
 
 import sys, time, os, whisper, json
 
@@ -35,6 +36,7 @@ def _whisper_fetch(path):
 @ensure_csrf_cookie
 def index(request):
     context = _whisper_fetch('hosting/cp-23/mysql/modsec/total_dbs_size.wsp')
+    context.update(csrf(request))
     return render_to_response('jargon.html', context)
 
 def children(request):
