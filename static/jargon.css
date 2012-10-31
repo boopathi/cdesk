@@ -33,6 +33,7 @@ header .selector {
 }
 header .selector .element {
     float: left;
+    margin-left: 2px;
     position: relative;
     top: 34px;
     background: #09F;
