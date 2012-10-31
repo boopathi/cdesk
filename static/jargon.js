@@ -208,7 +208,9 @@ $(document).ready(function() {
 	//settings
 	var db = _graph.tree;
 	var current = [];
-	
+	return {
+
+	};
     })();
 
     var gtree=_graph.tree;
@@ -219,8 +221,6 @@ $(document).ready(function() {
 	    if(parseInt($(item).data('level')) > level)
 		$(item).remove();
 	});
-	var current=gtree;
-	for(var i=1;i<=level;i++) current=current[]
     });
 
 });
