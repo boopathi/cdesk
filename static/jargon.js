@@ -249,6 +249,7 @@ $(document).ready(function() {
 	var selector = $(".header .selector");
 	var elements = selector.find(".element");
 	var max = 1;
+	console.log("test");
 	function changer() {
 	    var level=parseInt($(this).data('level'));
 	    elements.each(function(i,item) {
