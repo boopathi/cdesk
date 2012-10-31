@@ -19,11 +19,10 @@
       var _graph = {
       title: "Metric X",
       desc: "This is also dynamically fetched",
-      from: parseInt({{ start }})*1000,
-      to: parseInt({{ end }})*1000
+      from: parseInt(0)*1000,
+      to: Date(2006,1,1)
       };
-      var data={{ values }};
-      //for(var i=0;i<100;i++) { data[i]=Math.random() + 4.5 * Math.random() * Math.random(); }
+      var data=[];
     </script>
     <script src="/static/jargon.js"></script>
   </body>

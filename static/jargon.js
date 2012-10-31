@@ -202,7 +202,7 @@ $(document).ready(function() {
         .appendTo($container);
 
     // create master and in its callback, create the detail chart
-    createMaster();
+    //createMaster();
 
     function getCookie(name) {
 	var cookieValue = null;
@@ -300,6 +300,7 @@ $(document).ready(function() {
 		el.append(sub);
 	    }
 	    el.change(changer).appendTo(selector);
+	    createMaster();
 	}
 	return function() {
 	    send();
