@@ -260,19 +260,22 @@ $(document).ready(function() {
 		}
 	    });
 	    max = level;
-	    path.push($(this).val());
-	    send({ metricpath: path.join('/') });
+	    val = $(this).val();
+	    send(val);
 	}
 	elements.change(changer);
-	function send(data) {
+	function send(val) {
+	    if(!val) val = ""
 	    $.ajax({
 		type: "POST",
 		url: "./_children",
-		data: data,
+		data: {metricpath:path.join('/')+'/'+val},
 		dataType: "json",
 		success: function(response) {
-		    if(response.status == 1)
+		    if(response.status == 1) {
+			val && path.push(val);
 			add(response.payload);
+		    }
 		}
 	    });
 	}
@@ -289,7 +292,7 @@ $(document).ready(function() {
 	    el.change(changer).appendTo(selector);
 	}
 	return function() {
-	    send({metricpath: ""});
+	    send();
 	}
     })();
     pathSelector();
