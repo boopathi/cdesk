@@ -11,7 +11,7 @@ def _whisper_fetch(path):
     basepath = "/data/graphite/whisper/"
     path = basepath+str(path)
     from_time='0'
-    until_time='now'
+    until_time=int(time.time())
     (timeInfo, values) = whisper.fetch(path, from_time, until_time)
     (start,end,step)=timeInfo
     values_json = str(values).replace('None','null')
