@@ -281,16 +281,10 @@ $(document).ready(function() {
 	    }
 	    el.change(changer).appendTo(selector);
 	}
+	return function(){
+	    console.log("hi there");
+	};
     })();
-
-    var gtree=_graph.tree;
-    var gtree_currentitem = [];
-    $("header .selector .element").change(function() {
-	var level=parseInt($(this).data('level'));
-	$(this).parent().find(".element").each(function(i,item) {
-	    if(parseInt($(item).data('level')) > level)
-		$(item).remove();
-	});
-    });
+    new pathSelector();
 
 });
