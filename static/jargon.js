@@ -248,7 +248,7 @@ $(document).ready(function() {
     var pathSelector = (function() {
 	var selector = $("header .selector");
 	var elements = selector.find(".element");
-	var max = 1;
+	var max = 0;
 	console.log(elements);
 	function changer() {
 	    var level=parseInt($(this).data('level'));
@@ -257,20 +257,21 @@ $(document).ready(function() {
 		    $(item).remove();
 	    });
 	    max = level;
-	    console.log("asdf");
+	    send({ metricpath: $(this).val() });
+	}
+	elements.change(changer);
+	function send(data) {
 	    $.ajax({
 		type: "POST",
 		url: "./_children",
-		data: { metricpath: $(this).val() },
+		data: data,
 		dataType: "json",
 		success: function(response) {
-		    console.log(response);
 		    if(response.status == 1)
 			add(response.payload);
 		}
 	    });
 	}
-	elements.change(changer);
 	function add(args) {
 	    var el = $("<ul/>", {
 		'class': 'element',
@@ -282,6 +283,9 @@ $(document).ready(function() {
 	    }
 	    el.change(changer).appendTo(selector);
 	}
+	return function() {
+	    send({metricpath: ""});
+	}
     })();
-
+    pathSelector();
 });
