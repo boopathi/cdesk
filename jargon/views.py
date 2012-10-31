@@ -48,7 +48,7 @@ def children(request):
     try:
         os.listdir(currentpath);
     except OSError:
-        flag=false
+        flag=False
     if flag: #then no one trying to hack into parent folders
         submetrics=[x for x in os.listdir(currentpath)]
         response['status'] = 1
