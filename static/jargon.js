@@ -252,6 +252,7 @@ $(document).ready(function() {
 	console.log(elements);
 	function changer() {
 	    var level=parseInt($(this).data('level'));
+	    var elements = selector.find(".elements");
 	    elements.each(function(i,item) {
 		if(parseInt($(item).data('level')) > level)
 		    $(item).remove();
