@@ -12,8 +12,8 @@
       var _graph = {
       title: "Boopathi Rajaa",
       desc: "This is also dynamically fetched",
-      from: {{ start }},
-      to: {{ end }}
+      from: parseInt({{ start }})*1000,
+      to: parseInt({{ end }})*1000
       };
       var data={{ values }};
       //for(var i=0;i<100;i++) { data[i]=Math.random() + 4.5 * Math.random() * Math.random(); }

@@ -15,7 +15,7 @@ def _whisper_fetch(path):
     (timeInfo, values) = whisper.fetch(path, from_time, until_time)
     (start,end,step)=timeInfo
     values_json = str(values).replace('None','null')
-    return {'start':int(start)*1000, 'end':int(end)*1000, 'step':step, 'values':values_json }
+    return {'start':start, 'end':end, 'step':step, 'values':values_json }
 
 def index(request):
     context = _whisper_fetch('hosting/cp-23/mysql/modsec/total_dbs_size.wsp')
