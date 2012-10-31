@@ -42,7 +42,7 @@ def index(request):
 @csrf_exempt
 def children(request):
     response = {}
-    basepath = '/data/graphite/whisper/'
+    basepath = '/data/graphite/whisper'
     currentpath = os.path.realpath(os.path.join(basepath,request.POST['metricpath']))
     flag = currentpath.startswith(basepath) and os.path.exists(currentpath)
     try:
