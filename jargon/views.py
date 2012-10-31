@@ -15,12 +15,7 @@ def _whisper_fetch(path):
     (timeInfo, values) = whisper.fetch(path, from_time, until_time)
     (start,end,step)=timeInfo
     values_json = str(values).replace('None','null')
-    return '''{
-"start": %d,
-"end": $d,
-"step": %d,
-"values": %s
-}''' % (start, end, step, values_json)
+    return (start, end, step, values_json)
 
 def index(request):
     context = {
