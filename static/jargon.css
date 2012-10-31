@@ -32,14 +32,21 @@ header .selector {
 }
 header .selector .element {
     float: left;
+    position: relative;
+    top: 34px;
     background: #2CF;
     color: #333;
-    corder:0;
+    border:0;
     outline:none;
     width: 180px;
     height: 50px;
     font-size: 1.3em;
     padding-left: 17px;
+}
+header .selector .element option {
+    background: #2CF;
+    color: #333;
+    border: 0;
 }
 #graph-container {
     min-width: 400px;
