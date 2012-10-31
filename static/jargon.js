@@ -250,6 +250,7 @@ $(document).ready(function() {
 	var elements = selector.find(".element");
 	var max = 0;
 	var path = [];
+	var loader = $("#loader");
 	console.log(elements);
 	function changer() {
 	    var level=parseInt($(this).data('level'));
@@ -260,6 +261,7 @@ $(document).ready(function() {
 		}
 	    });
 	    max = level;
+	    loader.show();
 	    val = $(this).val();
 	    send(val);
 	}
@@ -274,6 +276,7 @@ $(document).ready(function() {
 		data: {metricpath:path.join('/')},
 		dataType: "json",
 		success: function(response) {
+		    loader.hide();
 		    if(response.status == 1)
 			add(response.payload);
 		    else
@@ -281,6 +284,7 @@ $(document).ready(function() {
 		},
 		error: function() {
 		    path.pop();
+		    loader.hide();
 		}
 	    });
 	}
