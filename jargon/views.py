@@ -44,7 +44,8 @@ def children(request):
     response = {}
     basepath = '/data/graphite/whisper/'
     currentpath = os.path.realpath(os.path.join(basepath,request.POST['metricpath']))
-    if currentpath.startswith(basepath): #then no one trying to hack into parent folders
+    flag = currentpath.startswith(basepath) and os.path.exists(currentpath)
+    if flag: #then no one trying to hack into parent folders
         submetrics=[x for x in os.listdir(currentpath)]
         response['status'] = 1
         response['payload'] = submetrics
