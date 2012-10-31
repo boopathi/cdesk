@@ -273,7 +273,7 @@ $(document).ready(function() {
 	    });
 	}
 	function add(args) {
-	    var el = $("<ul/>", {
+	    var el = $("<select/>", {
 		'class': 'element',
 		'data-level': max+1
 	    });
