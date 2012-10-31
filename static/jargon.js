@@ -265,6 +265,7 @@ $(document).ready(function() {
 	}
 	elements.change(changer);
 	function send(val) {
+	    console.log(path);
 	    if(!val) val='';
 	    path.push(val);
 	    $.ajax({
