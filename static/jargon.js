@@ -265,17 +265,21 @@ $(document).ready(function() {
 	}
 	elements.change(changer);
 	function send(val) {
-	    if(!val) val = ""
+	    if(!val) val='';
+	    path.push(val);
 	    $.ajax({
 		type: "POST",
 		url: "./_children",
-		data: {metricpath:path.join('/')+'/'+val},
+		data: {metricpath:path.join('/')},
 		dataType: "json",
 		success: function(response) {
-		    if(response.status == 1) {
-			val && path.push(val);
+		    if(response.status == 1)
 			add(response.payload);
-		    }
+		    else
+			path.pop();
+		},
+		error: function() {
+		    path.pop();
 		}
 	    });
 	}
