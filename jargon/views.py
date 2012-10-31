@@ -46,6 +46,8 @@ def children(request):
     currentpath = os.path.realpath(os.path.join(basepath,request.POST['metricpath']))
     nohack = currentpath.startswith(basepath)
     wsp = nohack and os.path.splitext(currentpath)[1] == "wsp"
+    response['nohack']=nohack
+    response['wsp']=wsp
     if wsp:
         context = _whisper_fetch(currentpath)
         response['status'] = 2
@@ -53,12 +55,12 @@ def children(request):
         response['input'] = currentpath
         response['base'] = basepath
         return HttpResponse(json.dumps(response), mimetype='application/json')
-    else:
-        return HttpResponse(json.dumps({'status':3}), mimetype='application/json')
     flag = nohack and os.path.exists(currentpath)
+    response['flag']=flag
     try:
         os.listdir(currentpath);
     except OSError:
+        response['oserror']=True
         flag=False
     if flag: #then no one trying to hack into parent folders
         submetrics=[x for x in os.listdir(currentpath)]
