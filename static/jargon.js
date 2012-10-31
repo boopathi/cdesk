@@ -278,7 +278,7 @@ $(document).ready(function() {
 		'data-level': max+1
 	    });
 	    for( i in args) {
-		var sub = $("<option/>",{text: i});
+		var sub = $("<option/>",{text: args[i]});
 		el.append(sub);
 	    }
 	    el.change(changer).appendTo(selector);
