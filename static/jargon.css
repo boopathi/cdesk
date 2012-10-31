@@ -19,9 +19,20 @@ blockquote:before, blockquote:after, q:before, q:after { content: '';content: no
 table { border-collapse: collapse;border-spacing: 0; }
 
 /*Jargon CSS*/
+.clearer { clear: both; }
 header h1{
-    padding: 20px;
-    font-size: 10em;
+    padding: 30px;
+    float: left;
+    font-size: 4.0em;
+}
+header .selector {
+    float: left;
+    height: 60px;
+}
+height .selector .element {
+    float: left;
+    height: 20px;
+    font-size: 1.0em;
 }
 #graph-container {
     min-width: 400px;
