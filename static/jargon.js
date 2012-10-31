@@ -245,6 +245,42 @@ $(document).ready(function() {
 	};
     })();
 
+    var pathSelector = (function() {
+	var selector = $(".header .selector");
+	var elements = selector.find(".element");
+	var max = 1;
+	function changer() {
+	    var level=parseInt($(this).data('level'));
+	    elements.each(function(i,item) {
+		if(parseInt($(item).data('level')) > level)
+		    $(item).remove();
+	    });
+	    max = level;
+	    $.ajax({
+		type: "POST",
+		url: "./_children",
+		data: { metricpath: $(this).val() },
+		dataType: "json",
+		success: function(response) {
+		    console.log(response);
+		    add(response.payload);
+		}
+	    });
+	}
+	elements.change(changer);
+	function add(args) {
+	    var el = $("<ul/>", {
+		'class': 'element',
+		'data-level': max+1
+	    });
+	    for( i in args) {
+		var sub = $("<option/>",{text: i});
+		el.append(sub);
+	    }
+	    el.change(changer).appendTo(selector);
+	}
+    })();
+
     var gtree=_graph.tree;
     var gtree_currentitem = [];
     $("header .selector .element").change(function() {
