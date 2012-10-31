@@ -24,8 +24,8 @@ def old_find_children(path):
 
 def _whisper_fetch(path):
     #imported from whisperfetch.py
-    basepath = "/data/graphite/whisper/"
-    path = basepath+str(path)
+    #basepath = "/data/graphite/whisper/"
+    path = str(path)
     from_time='0'
     until_time=int(time.time())
     (timeInfo, values) = whisper.fetch(path, from_time, until_time)
@@ -35,7 +35,7 @@ def _whisper_fetch(path):
 
 @ensure_csrf_cookie
 def index(request):
-    context = _whisper_fetch('hosting/cp-23/mysql/modsec/total_dbs_size.wsp')
+    context = {} # _whisper_fetch('hosting/cp-23/mysql/modsec/total_dbs_size.wsp')
     context.update(csrf(request))
     return render_to_response('jargon.html', context)
 
@@ -44,7 +44,17 @@ def children(request):
     response = {}
     basepath = '/data/graphite/whisper'
     currentpath = os.path.realpath(os.path.join(basepath,request.POST['metricpath']))
-    flag = currentpath.startswith(basepath) and os.path.exists(currentpath)
+    nohack = currentpath.startswith(basepath)
+    wsp = nohack and os.path.splitext(currentpath)[1] == "wsp"
+    if wsp:
+        context = _whiper_fetch(currentpath)
+        response = {}
+        response['status'] = 2
+        response['payload'] = context
+        response['input'] = currentpath
+        response['base'] = basepath
+        return HttpResponse(json.dumps(response), mimetype='application/json')
+    flag = nohack and os.path.exists(currentpath)
     try:
         os.listdir(currentpath);
     except OSError:
