@@ -276,6 +276,7 @@ $(document).ready(function() {
 		data: {metricpath:path.join('/')},
 		dataType: "json",
 		success: function(response) {
+		    console.log(response);
 		    loader.hide();
 		    if(response.status == 1)
 			add(response.payload);
