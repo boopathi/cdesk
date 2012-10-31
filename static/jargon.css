@@ -55,3 +55,8 @@ header .selector .element option {
     height: 600px;
     margin: 0 auto;
 }
+#loader {
+    position: relative;
+    margin-top: 48px;
+    margin-left: -22px;
+}
