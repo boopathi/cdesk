@@ -249,7 +249,7 @@ $(document).ready(function() {
 	var selector = $(".header .selector");
 	var elements = selector.find(".element");
 	var max = 1;
-	console.log("test");
+	console.log(elements);
 	function changer() {
 	    var level=parseInt($(this).data('level'));
 	    elements.each(function(i,item) {
@@ -281,10 +281,6 @@ $(document).ready(function() {
 	    }
 	    el.change(changer).appendTo(selector);
 	}
-	return function(){
-	    console.log("hi there");
-	};
     })();
-    new pathSelector();
 
 });
