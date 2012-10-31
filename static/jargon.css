@@ -20,19 +20,26 @@ table { border-collapse: collapse;border-spacing: 0; }
 
 /*Jargon CSS*/
 .clearer { clear: both; }
+header { height: 124px; background: #222; }
 header h1{
     padding: 30px;
     float: left;
-    font-size: 4.0em;
+    font-size: 3.0em;
+    color: #FC2;
 }
 header .selector {
-    float: left;
-    line-height: 60px;
+    float:left; line-height: 124px;
 }
-height .selector .element {
+header .selector .element {
     float: left;
-    height: 20px;
-    font-size: 1.0em;
+    background: #2CF;
+    color: #333;
+    corder:0;
+    outline:none;
+    width: 180px;
+    height: 50px;
+    font-size: 1.3em;
+    padding-left: 17px;
 }
 #graph-container {
     min-width: 400px;
