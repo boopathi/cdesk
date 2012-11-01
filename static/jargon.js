@@ -274,6 +274,7 @@ $(document).ready(function() {
 			window._graph = {
 			    title: "val",
 			    desc: path.join('.'),
+			    data: [],
 			    from: response.payload.start,
 			    to: response.payload.end
 			};
