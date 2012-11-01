@@ -272,7 +272,9 @@ $(document).ready(function() {
 		    else
 			path.pop();
 		    if(response.status == 2) {
-			window.data=response.payload.values;
+			var arr = [];
+			eval("arr = " + response.payload.values);
+			window.data=arr;
 			window._graph = {
 			    title: "val",
 			    desc: path.join('.'),
