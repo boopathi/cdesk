@@ -58,6 +58,7 @@ def children(request):
         context = _whisper_fetch(currentpath)
         response['status'] = 2
         response['payload'] = context
+        response['input']=currentpath
         return HttpResponse(json.dumps(response), mimetype='application/json')
     flag = nohack and os.path.exists(currentpath)
     response['flag']=flag
@@ -69,8 +70,10 @@ def children(request):
         submetrics=[x for x in os.listdir(currentpath)]
         response['status'] = 1
         response['payload'] = submetrics
+        response['input']=currentpath
         return HttpResponse(json.dumps(response), mimetype='application/json')
     else:
         response['status'] = 0
         response['payload'] = []
+        response['input']=currentpath
         return HttpResponse(json.dumps(response), mimetype='application/json')
