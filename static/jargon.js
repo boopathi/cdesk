@@ -2,7 +2,7 @@ var masterChart,detailChart;
 $(document).ready(function() {
 
     var resizedata = function (args) {
-	if(args.data.length <= 1000) return args.data;
+	if(args.data.length <= 1000) return args;
 	var list=[],sum=0;
 	var ng=args.data.length/1000;
 	for(var i=0;i<1000;i++){
