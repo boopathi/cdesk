@@ -15,8 +15,10 @@ $(document).ready(function() {
 		sum=sum+args.data[i+j];
 	    list.push(sum/ng);
 	}*/
-	for(var i=0;i<1000;i++)
+	for(var i=0;i<1000;i++){
+	    console.log(getRandomInt(ng*i, ng*(i+1)));
 	    list.push(data[getRandomInt(ng*i, ng*(i+1))]);
+	}
 	console.log(list);
 	return {
 	    data: list,
