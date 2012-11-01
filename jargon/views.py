@@ -33,7 +33,7 @@ def _whisper_fetch(path):
     flag = True
     pos=0
     for i in values:
-        if flag and i==None:
+        if flag and (i==None):
             pos=pos+1
         else:
             flag=False
