@@ -17,6 +17,7 @@ $(document).ready(function() {
 	}*/
 	for(var i=0;i<1000;i++)
 	    list.push(data[getRandomInt(ng*i, ng*(i+1))]);
+	console.log(list);
 	return {
 	    data: list,
 	    interval: ng*args.interval
