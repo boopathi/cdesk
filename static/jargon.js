@@ -192,14 +192,12 @@ $(document).ready(function() {
             }
         });
     }
-    var $container = $('#graph-container')
-        .css('position', 'relative');
-    var $detailContainer = $('<div id="detail-container">')
-        .appendTo($container);
+    var $container = $('#graph-container').css('position', 'relative');
+    var $detailContainer = $('<div id="detail-container">').appendTo($container);
 
-    var $masterContainer = $('<div id="master-container">')
-        .css({ position: 'absolute', top: 300, height: 80, width: '100%' })
-        .appendTo($container);
+    var $masterContainer = $('<div id="master-container">').css({
+	position: 'absolute', top: 300, height: 80, width: '100%'
+    }).appendTo($container);
 
     // create master and in its callback, create the detail chart
     //createMaster();
@@ -235,15 +233,6 @@ $(document).ready(function() {
 		xhr.setRequestHeader("X-CSRFToken", csrftoken);
 	}
     });
-
-    var gtree = (function() {
-	//settings
-	var db = _graph.tree;
-	var current = [];
-	return {
-
-	};
-    })();
 
     var pathSelector = (function() {
 	var selector = $("header .selector");
@@ -310,7 +299,6 @@ $(document).ready(function() {
 		el.append(sub);
 	    }
 	    el.change(changer).appendTo(selector);
-	    createMaster();
 	}
 	return function() {
 	    send();
