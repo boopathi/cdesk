@@ -146,7 +146,7 @@ $(document).ready(function() {
                 enabled: false
             }
         }, function(masterChart) {
-            createDetail(_graph.data)
+            createDetail(_graph)
         });
     }
     // create the detail chart
