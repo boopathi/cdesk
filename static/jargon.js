@@ -282,6 +282,16 @@ $(document).ready(function() {
 			add(response.payload);
 		    else
 			path.pop();
+		    if(response.status == 2) {
+			window.data=response.payload.values;
+			window._graph = {
+			    title: "val",
+			    desc: path.join('.'),
+			    from: response.payload.start,
+			    to: response.payload.end
+			};
+			createMaster();
+		    }
 		},
 		error: function() {
 		    path.pop();
