@@ -2,6 +2,10 @@ var masterChart,detailChart;
 $(document).ready(function() {
     // create the master chart
     function createMaster() {
+	var i = data.length<1000 ? data.length-1000 : 0;
+	for(;i<data.length;i++)
+	    _graph.data.push(data[i]);
+	//map only the last few points
         masterChart = new Highcharts.Chart({
             chart: {
                 renderTo: 'master-container',
@@ -111,7 +115,7 @@ $(document).ready(function() {
                 name: _graph.title,
                 pointInterval: 24 * 3600 * 1000,
                 pointStart: _graph.from,
-                data: data
+                data: _graph.data
             }],
             exporting: {
                 enabled: false
@@ -265,8 +269,7 @@ $(document).ready(function() {
 		success: function(response) {
 		    loader.hide();
 		    if(response.status == 2) {
-			var arr = [];
-			eval("arr = " + response.payload.values);
+			var arr = response.payload.values;
 			window.data=arr;
 			window._graph = {
 			    title: "val",
