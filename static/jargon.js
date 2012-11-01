@@ -36,6 +36,7 @@ $(document).ready(function() {
                 zoomType: 'x',
                 events: {
                     selection: function(event) {
+			/*
                         var extremesObject = event.xAxis[0],
                         min = extremesObject.min,
                         max = extremesObject.max,
@@ -64,6 +65,11 @@ $(document).ready(function() {
                             color: 'rgba(0, 0, 0, 0.2)'
                         });
                         detailChart.series[0].setData(detailData);
+			*/
+			var xa = event.xAxis[0];
+			var min=xa.min, max=xa.max;
+			console.log(min,max);
+			createDetail(_graph.data);
                         return false;
                     }
                 }
