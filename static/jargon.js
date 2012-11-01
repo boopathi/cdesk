@@ -69,6 +69,7 @@ $(document).ready(function() {
 			});
 			detailgraph.data = newdata.data;
 			detailgraph.interval = newdata.interval;
+			console.log(detailgraph);
 			createDetail(detailgraph);
                         return false;
                     }
@@ -153,7 +154,7 @@ $(document).ready(function() {
     function createDetail(detailgraph) {
         //var detailData = [],
 	var detailData = detailgraph.data;
-        detailStart = detailgraph.from;
+        var detailStart = detailgraph.from;
 	/*
         jQuery.each(masterChart.series[0].data, function(i, point) {
             if (point.x >= detailStart) {
