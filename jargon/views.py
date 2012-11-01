@@ -38,8 +38,7 @@ def _whisper_fetch(path):
             flag=False
     values = values[pos:]
     start = start + pos*step
-    values_json = str(values).replace('None','null')
-    return {'start':start,'end':end,'step':step,'values':values_json }
+    return {'start':start,'end':end,'step':step,'values':values, 'pos':pos }
 
 @ensure_csrf_cookie
 def index(request):
