@@ -4,6 +4,7 @@ $(document).ready(function() {
     // create the master chart
     function createMaster() {
 	var i = (data.length>1000) ? (data.length-1000) : 0;
+	_graph.from = _graph.from + _graph.interval * i;
 	for(;i<data.length;i++)
 	    _graph.data.push(data[i]);
 	//map only the last few points
