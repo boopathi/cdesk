@@ -240,7 +240,6 @@ $(document).ready(function() {
 	var max = 0;
 	var path = [];
 	var loader = $("#loader");
-	console.log(elements);
 	function changer() {
 	    var level=parseInt($(this).data('level'));
 	    var els = selector.find(".element");
@@ -256,21 +255,15 @@ $(document).ready(function() {
 	}
 	elements.change(changer);
 	function send(val) {
-	    console.log(path);
 	    if(!val) val='.';
 	    path.push(val);
 	    $.ajax({
 		type: "POST",
-		url: "./_children",
+		url: "./_a",
 		data: {metricpath:path.join('/')},
 		dataType: "json",
 		success: function(response) {
-		    console.log(response);
 		    loader.hide();
-		    if(response.status == 1)
-			add(response.payload);
-		    else
-			path.pop();
 		    if(response.status == 2) {
 			var arr = [];
 			eval("arr = " + response.payload.values);
@@ -283,6 +276,10 @@ $(document).ready(function() {
 			};
 			createMaster();
 		    }
+		    if(response.status == 1)
+			add(response.payload);
+		    else
+			path.pop();
 		},
 		error: function() {
 		    path.pop();

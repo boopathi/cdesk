@@ -30,6 +30,14 @@ def _whisper_fetch(path):
     until_time=int(time.time())
     (timeInfo, values) = whisper.fetch(path, from_time, until_time)
     (start,end,step)=timeInfo
+    flag = True
+    pos=0
+    for i in values:
+        if flag and i==None:
+            pos++
+            flag=False
+    values = values[pos:]
+    start = start + pos*step
     values_json = str(values).replace('None','null')
     return {'start':start,'end':end,'step':step,'values':values_json }
 
@@ -46,33 +54,23 @@ def children(request):
     currentpath = os.path.realpath(os.path.join(basepath,request.POST['metricpath']))
     nohack = currentpath.startswith(basepath)
     wsp = nohack and (".wsp" == os.path.splitext(currentpath)[1])
-    response['nohack']=nohack
-    response['wsp']=wsp
-    response['wspdata']=os.path.splitext(currentpath)[1]
     if wsp:
         context = _whisper_fetch(currentpath)
         response['status'] = 2
         response['payload'] = context
-        response['input'] = currentpath
-        response['base'] = basepath
         return HttpResponse(json.dumps(response), mimetype='application/json')
     flag = nohack and os.path.exists(currentpath)
     response['flag']=flag
     try:
         os.listdir(currentpath);
     except OSError:
-        response['oserror']=True
         flag=False
     if flag: #then no one trying to hack into parent folders
         submetrics=[x for x in os.listdir(currentpath)]
         response['status'] = 1
         response['payload'] = submetrics
-        response['input'] = currentpath
-        response['base'] = basepath
         return HttpResponse(json.dumps(response), mimetype='application/json')
     else:
         response['status'] = 0
         response['payload'] = []
-        response['input'] = currentpath
-        response['base']=basepath
         return HttpResponse(json.dumps(response), mimetype='application/json')
