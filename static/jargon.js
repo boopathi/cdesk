@@ -1,5 +1,6 @@
 var masterChart,detailChart;
 $(document).ready(function() {
+
     // create the master chart
     function createMaster() {
 	var i = data.length<1000 ? data.length-1000 : 0;
@@ -55,7 +56,7 @@ $(document).ready(function() {
             xAxis: {
                 type: 'datetime',
                 showLastTickLabel: true,
-                maxZoom: 24 * 3600000, // fourteen days
+                //maxZoom: 24 * 3600000, // fourteen days
                 plotBands: [{
                     id: 'mask-before',
                     from: _graph.from,
@@ -113,7 +114,7 @@ $(document).ready(function() {
             series: [{
                 type: 'area',
                 name: _graph.title,
-                pointInterval: 24 * 3600 * 1000,
+                pointInterval: _graph.interval,
                 pointStart: _graph.from,
                 data: _graph.data
             }],
@@ -188,7 +189,7 @@ $(document).ready(function() {
             series: [{
                 name: _graph.title,
                 pointStart: detailStart,
-                pointInterval: 24 * 3600 * 1000,
+                pointInterval: _graph.interval,
                 data: detailData
             }],
             exporting: {
@@ -274,7 +275,7 @@ $(document).ready(function() {
 			window._graph = {
 			    title: "val",
 			    desc: path.join('.'),
-			    data: [],
+			    data: [], interval: response.payload.step,
 			    from: response.payload.start,
 			    to: response.payload.end
 			};
