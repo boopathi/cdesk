@@ -276,8 +276,8 @@ $(document).ready(function() {
 			    title: "val",
 			    desc: path.join('.'),
 			    data: [], interval: response.payload.step,
-			    from: Date(response.payload.start),
-			    to: Date(response.payload.end)
+			    from: response.payload.start*1000,
+			    to: response.payload.end*1000
 			};
 			createMaster();
 		    }
