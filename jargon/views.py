@@ -35,6 +35,7 @@ def _whisper_fetch(path):
     for i in values:
         if flag and i==None:
             pos=pos+1
+        else:
             flag=False
     values = values[pos:]
     start = start + pos*step
