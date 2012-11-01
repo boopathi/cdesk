@@ -1,12 +1,33 @@
 var masterChart,detailChart;
 $(document).ready(function() {
 
+    var resizedata = function (args) {
+	if(args.data.length <= 1000) return args.data;
+	var list=[],sum=0;
+	var ng=args.data.length/1000;
+	for(var i=0;i<1000;i++){
+	    sum=0;
+	    for(var j=0;j<ng;j++)
+		sum=sum+args.data[i+j];
+	    list.push(sum/ng);
+	}
+	return {
+	    data: list,
+	    interval: ng*args.interval
+	};
+    }
     // create the master chart
     function createMaster() {
 	var i = (data.length>1000) ? (data.length-1000) : 0;
 	_graph.from = _graph.from + _graph.interval * i;
 	for(;i<data.length;i++)
 	    _graph.data.push(data[i]);
+
+	var newdata = resizedata({
+	    data: _graph.data, interval: _graph.interval
+	});
+	_graph.data = newdata.data;
+	_graph.interval = newdata.interval;
 	//map only the last few points
         masterChart = new Highcharts.Chart({
             chart: {
