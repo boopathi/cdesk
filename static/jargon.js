@@ -26,6 +26,7 @@ $(document).ready(function() {
 	var newdata = resizedata({
 	    data: _graph.data, interval: _graph.interval
 	});
+	console.log(newdata);
 	_graph.data = newdata.data;
 	_graph.interval = newdata.interval;
 	//map only the last few points
