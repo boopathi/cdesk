@@ -36,40 +36,40 @@ $(document).ready(function() {
                 zoomType: 'x',
                 events: {
                     selection: function(event) {
-			/*
                         var extremesObject = event.xAxis[0],
                         min = extremesObject.min,
                         max = extremesObject.max,
                         detailData = [],
                         xAxis = this.xAxis[0];
-                        jQuery.each(this.series[0].data, function(i, point) {
-                            if (point.x > min && point.x < max) {
-                                detailData.push({
-                                    x: point.x,
-                                    y: point.y
-                                });
-                            }
-                        });
                         xAxis.removePlotBand('mask-before');
                         xAxis.addPlotBand({
                             id: 'mask-before',
                             from: _graph.from,
                             to: min,
-                            color: 'rgba(0, 0, 0, 0.2)'
+                            color: 'rgba(0, 0, 0, 0.4)'
                         });
                         xAxis.removePlotBand('mask-after');
                         xAxis.addPlotBand({
                             id: 'mask-after',
                             from: max,
                             to: _graph.to,
-                            color: 'rgba(0, 0, 0, 0.2)'
+                            color: 'rgba(0, 0, 0, 0.4)'
                         });
-                        detailChart.series[0].setData(detailData);
-			*/
-			var xa = event.xAxis[0];
-			var min=xa.min, max=xa.max;
 			console.log(min,max);
-			createDetail(_graph.data);
+			var detailgraph = {
+			    from: (min-_graph.from)/_graph._interval,
+			    to: (max-_graph.from)/_graph._interval,
+			    data: [], interval: 10
+			}
+			for(i=detailgraph.from;i<detailgraph.to;i++)
+			    detailgraph.data.push(data[i]);
+			var newdata = resizedata({
+			    data: detailgraph.data,
+			    interval: _graph._interval
+			});
+			detailgraph.data = newdata.data;
+			detailgraph.interval = newdata.interval;
+			createDetail(detailgraph);
                         return false;
                     }
                 }
@@ -150,9 +150,10 @@ $(document).ready(function() {
         });
     }
     // create the detail chart
-    function createDetail(detailData) {
+    function createDetail(detailgraph) {
         //var detailData = [],
-        detailStart = _graph.from;
+	var detailData = detailgraph.data;
+        detailStart = detailgraph.from;
 	/*
         jQuery.each(masterChart.series[0].data, function(i, point) {
             if (point.x >= detailStart) {
@@ -214,7 +215,7 @@ $(document).ready(function() {
             series: [{
                 name: _graph.title,
                 pointStart: detailStart,
-                pointInterval: _graph.interval,
+                pointInterval: detailgraph.interval,
                 data: detailData
             }],
             exporting: {
