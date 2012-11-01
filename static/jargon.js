@@ -1,16 +1,22 @@
 var masterChart,detailChart;
+function getRandomInt (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 $(document).ready(function() {
 
     var resizedata = function (args) {
 	if(args.data.length <= 1000) return args;
 	var list=[],sum=0;
 	var ng=args.data.length/1000;
+	/*
 	for(var i=0;i<1000;i++){
 	    sum=0;
 	    for(var j=0;j<ng;j++)
 		sum=sum+args.data[i+j];
 	    list.push(sum/ng);
-	}
+	}*/
+	for(var i=0;i<1000;i++)
+	    list.push(data[getRandomInt(ng*i, ng*(i+1))]);
 	return {
 	    data: list,
 	    interval: ng*args.interval
