@@ -140,18 +140,19 @@ $(document).ready(function() {
                 enabled: false
             }
         }, function(masterChart) {
-            createDetail(masterChart)
+            createDetail(_graph.data)
         });
     }
     // create the detail chart
-    function createDetail(masterChart) {
-        var detailData = [],
+    function createDetail(detailData) {
+        //var detailData = [],
         detailStart = _graph.from;
+	/*
         jQuery.each(masterChart.series[0].data, function(i, point) {
             if (point.x >= detailStart) {
                 detailData.push(point.y);
             }
-        });
+        });*/
         detailChart = new Highcharts.Chart({
             chart: {
                 marginBottom: 120,
@@ -294,6 +295,7 @@ $(document).ready(function() {
 			    title: "val",
 			    desc: path.join('.'),
 			    data: [], interval: response.payload.step,
+			    _interval: response.payload.step,
 			    from: response.payload.start*1000,
 			    to: response.payload.end*1000
 			};
