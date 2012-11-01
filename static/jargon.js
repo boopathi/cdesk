@@ -57,8 +57,8 @@ $(document).ready(function() {
                         });
 			console.log(min,max);
 			var detailgraph = {
-			    from: (min-_graph.from)/_graph._interval,
-			    to: (max-_graph.from)/_graph._interval,
+			    from: parseInt((min-_graph.from)/_graph._interval),
+			    to: parseInt((max-_graph.from)/_graph._interval)+1,
 			    data: [], interval: 10
 			}
 			for(i=detailgraph.from;i<detailgraph.to;i++)
