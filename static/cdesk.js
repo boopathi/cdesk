@@ -15,9 +15,6 @@ $(function(){
     $(".gimage img").bind({
 	"load": function(){ log(); }
     });
-    var newImage = function() {
-	
-    }
     var popimage = function(label, target) {
 	var settings = {
 	    "width": 960,
@@ -30,7 +27,7 @@ $(function(){
 	sarray = [];
 	for(i in settings) sarray.push(i + "=" + settings[i]);
 	src = baseurl + "?" + sarray.join('&');
-	$("#bigimage").attr("src", src);
+	$("#bigimage img").attr("src", src);
 	$("#bigpreview").trigger('click');
     }
     $(".gimage").click(function(e){
