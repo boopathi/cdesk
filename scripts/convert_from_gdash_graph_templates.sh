@@ -4,7 +4,7 @@ GDASH_LOCATION=/var/www/html/gdash
 GRAPH_TEMPLATES=$GDASH_LOCATION/graph_templates
 
 #app settings
-TABLENAME=dashboard_graph
+TABLENAME=rhino_graph
 
 SCRIPTNAME=$0
 DBLOCATION=$1

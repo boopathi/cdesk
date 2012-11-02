@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.template import Context, loader
 from django.shortcuts import render_to_response, get_object_or_404
 
-from dashboard.models import server as Server, Graph, service as Service
+from rhino.models import server as Server, Graph, service as Service
 
 services = ['dns', 'ftp', 'http','mail', 'mysql', 'power', 'system', 'uptime']
 server_prefixes = ['md-', 'bh-', 'bh-cp-', 'cp-']

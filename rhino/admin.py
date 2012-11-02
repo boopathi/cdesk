@@ -1,4 +1,4 @@
-from dashboard.models import server, service, Graph
+from rhino.models import server, service, Graph
 from django.contrib import admin
 
 admin.site.register(server)
