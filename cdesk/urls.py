@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'home'),
+    url(r'^$', 'cdesk.views', name='home'),
     # url(r'^cdesk/', include('cdesk.foo.urls')),
     url(r'^rhino/', include('rhino.urls')),
     url(r'^jargon/', include('jargon.urls')),
