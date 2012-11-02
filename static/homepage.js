@@ -1,8 +1,8 @@
 $(function() {
     $(".icon").hover(function() {
 	$(this).stop().animate({
-	    width: 320,
-	    height: 320,
+	    width: 310,
+	    height: 310,
 	    borderWidth: 0
 	},100);
     },function() {

@@ -1,6 +1,6 @@
 body {
     margin: 0; padding: 0; border:0;
-    background: #DDD;
+    background: #EEE;
 }
 .icon {
     width: 300px;
@@ -14,7 +14,7 @@ body {
     margin-top: -150px;
     background: #EEE;
     text-align: center;
-    border: solid 10px #FFF;
+    border: solid 5px #FFF;
 }
 .icon h1 {
     position: relative;
