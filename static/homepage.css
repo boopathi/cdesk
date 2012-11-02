@@ -13,9 +13,15 @@ body {
     top: 50%;
     margin-top: -150px;
     background: #EEE;
-    font-family: Arial;
     text-align: center;
+    border: solid 30px #FFF;
+}
+.icon h1 {
+    position: relative;
+    font-family: Arial;
     text-shadow: 1px 1px 2px #FFF;
+    top: 50%;
+    margin-top: -20px;
 }
 #rhino {
     left: 35%;
