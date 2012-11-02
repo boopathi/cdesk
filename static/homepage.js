@@ -8,7 +8,7 @@ $(function() {
 	    borderWidth: 0,
 	    color: "#000"
 	},100);
-	$(document).stop().animate({
+	$("body").stop().animate({
 	    backgroundColor: $(this).data("bg")
 	});
     },function() {
@@ -18,7 +18,7 @@ $(function() {
 	    borderWidth: 5,
 	    color: "#FFF"//$(this).data("bg")
 	}, 250);
-	$(document).stop().animate({
+	$("body").stop().animate({
 	    backgroundColor: "#EEE"
 	});
     });
