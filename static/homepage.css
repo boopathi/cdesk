@@ -1,3 +1,8 @@
+
+@font-face { font-family: 'SegoeWP';src: url('SegoeWP.eot');
+src: url('SegoeWP.woff') format('woff'), url('SegoeWP.ttf') format('truetype'), url('SegoeWP.svg') format('svg');
+font-weight: normal;font-style: normal; }
+
 body {
     margin: 0; padding: 0; border:0;
     background: #EEE;
@@ -18,7 +23,7 @@ body {
 }
 .icon h1 {
     position: relative;
-    font-family: Arial;
+    font-family: "SegoeWP" "SegoeUI" sans-serif;
     text-shadow: 1px 1px 2px #FFF;
     top: 50%;
     margin-top: -20px;
