@@ -8,6 +8,9 @@ $(function() {
 	    borderWidth: 0,
 	    color: "#000"
 	},100);
+	$(document).stop().animate({
+	    backgroundColor: $(this).data("bg")
+	});
     },function() {
 	$(this).stop().animate({
 	    width: 300,
@@ -15,5 +18,8 @@ $(function() {
 	    borderWidth: 5,
 	    color: "#FFF"//$(this).data("bg")
 	}, 250);
+	$(document).stop().animate({
+	    backgroundColor: "#EEE"
+	});
     });
 });
