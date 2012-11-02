@@ -6,14 +6,14 @@ $(function() {
 	    width: 310,
 	    height: 310,
 	    borderWidth: 0,
-	    backgroundColor: "#EEE"
+	    color: "#000"
 	},100);
     },function() {
 	$(this).stop().animate({
 	    width: 300,
 	    height: 300,
 	    borderWidth: 5,
-	    backgroundColor: $(this).data("bg")
+	    color: "#FFF"//$(this).data("bg")
 	}, 250);
     });
 });
