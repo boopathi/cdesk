@@ -6,6 +6,7 @@ $(function() {
 	    width: 310,
 	    height: 310,
 	    borderWidth: 0,
+	    color: '#FFF',
 	    backgroundColor: $(this).data('bg')
 	},100);
 	$("body").stop().animate({
@@ -16,10 +17,11 @@ $(function() {
 	    width: 300,
 	    height: 300,
 	    borderWidth: 5,
+	    color: $(this).data('bg'),
 	    backgroundColor: "#EEE"//$(this).data("bg")
-	}, 500);
+	}, 250);
 	$("body").stop().animate({
 	    backgroundColor: "#EEE"
-	}, 500);
+	}, 250);
     });
 });
