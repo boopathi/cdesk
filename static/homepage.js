@@ -11,7 +11,7 @@ $(function() {
 	},100);
 	$("body").stop().animate({
 	    backgroundColor: $(this).data("bg")
-	},3000);
+	},5000);
     },function() {
 	$(this).stop().animate({
 	    width: 300,
