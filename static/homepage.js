@@ -6,20 +6,20 @@ $(function() {
 	    width: 310,
 	    height: 310,
 	    borderWidth: 0,
-	    color: "#000"
+	    backgroundColor: $(this).data('bg')
 	},100);
 	$("body").stop().animate({
 	    backgroundColor: $(this).data("bg")
-	});
+	},3000);
     },function() {
 	$(this).stop().animate({
 	    width: 300,
 	    height: 300,
 	    borderWidth: 5,
-	    color: "#FFF"//$(this).data("bg")
-	}, 250);
+	    backgroundColor: "#EEE"//$(this).data("bg")
+	}, 500);
 	$("body").stop().animate({
 	    backgroundColor: "#EEE"
-	});
+	}, 500);
     });
 });

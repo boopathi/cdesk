@@ -31,22 +31,22 @@ a, a:link, a:visited, a:hover {
     margin-top: -20px;
 }
 #graphite {
-    background: #44F;
+    background: #EEE; /*#44F;*/
     margin-top: -350px;
     margin-left: -350px;
 }
 #gdash {
-    background: #ED0;
+    background: #EEE; /*#ED0;*/
     margin-top: -350px;
     margin-left: 50px;
 }
 #rhino {
-    background: #4C4;
+    background: #EEE /*#4C4; */
     margin-top: 50px;
     margin-left: -350px;
 }
 #jargon {
-    background: #F44;
+    background: #EEE; /*#F44;*/
     margin-top: 50px;
     margin-left: 50px;
 }
