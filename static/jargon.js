@@ -18,7 +18,6 @@ $(document).ready(function() {
 	for(var i=0;i<1000;i++){
 	    list.push(data[getRandomInt(ng*i, ng*(i+1))]);
 	}
-	console.log(list);
 	return {
 	    data: list,
 	    interval: ng*args.interval
@@ -29,7 +28,6 @@ $(document).ready(function() {
 	var newdata = resizedata({
 	    data: data, interval: _graph.interval
 	});
-	console.log(newdata);
 	_graph.data = newdata.data;
 	_graph.interval = newdata.interval;
 	//map only the last few points
@@ -63,7 +61,6 @@ $(document).ready(function() {
                             to: _graph.to,
                             color: 'rgba(0, 0, 0, 0.4)'
                         });
-			console.log(min,max);
 			var detailgraph = {
 			    from: parseInt((min-_graph.from)/_graph._interval),
 			    to: parseInt((max-_graph.from)/_graph._interval)+1,
