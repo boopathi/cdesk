@@ -19,7 +19,7 @@ a, a:link, a:visited, a:hover {
     vertical-align: middle;
     border: 0;
     left: 50%;
-    margin-top: -150px;
+    top: 50%;
     background: #EEE;
     text-align: center;
     border: solid 5px #FFF;
@@ -32,21 +32,21 @@ a, a:link, a:visited, a:hover {
 }
 #graphite {
     background: #44F;
-    top: 25%;
+    margin-top: -350px;
     margin-left: -350px;
 }
 #gdash {
     background: #ED0;
-    top: 25%;
+    margin-top: -350px;
     margin-left: 50px;
 }
 #rhino {
     background: #4C4;
-    top: 75%;
+    margin-top: 50px;
     margin-left: -350px;
 }
 #jargon {
     background: #F44;
-    top:75%;
+    margin-top: 50px;
     margin-left: 50px;
 }
