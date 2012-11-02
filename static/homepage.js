@@ -3,7 +3,7 @@ $(function() {
 	$(this).stop().animate({
 	    width: 360,
 	    height: 360,
-	    border: 0
+	    borderWidth: 0
 	},100);
     },function() {
 	$(this).stop().animate({
