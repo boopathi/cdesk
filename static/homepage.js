@@ -9,7 +9,7 @@ $(function() {
 	$(this).stop().animate({
 	    width: 300,
 	    height: 300,
-	    borderWidth: 10
+	    borderWidth: 5
 	}, 250);
     });
 });
